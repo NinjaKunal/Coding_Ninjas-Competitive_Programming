@@ -29,17 +29,30 @@ false
 
 #include<bits/stdc++.h>
 using namespace std;
-int main()
-{
-    int n,i,p=0;
-    cin>>n;
+int main() {
+
+	int n,t,i,j,s;
+    cin>>n>>t;
     int a[n];
     for(i=0;i<n;++i)
-        cin>>a[i];
-    for(i=0;i<n/2;++i)
+    cin>>a[i];
+    int st=0;
+    s=0;
+    for(i=0;i<n;i++)
     {
-        p=a[i]+a[n-i-1];
-        cout<<p/10<<" "<<p%10<<"\n";
+        s+=a[i];
+        while(s>t && st<i){
+            s-=a[st];
+            st++;
+        }
+        if(s==t)
+        {
+            cout<<"true\n";
+            for(int j=st;j<=i;j++)
+                cout<<a[j]<<" ";
+            return 0;
+        }
     }
-	return 0;
+    cout<<"false";
+    return 0;
 }

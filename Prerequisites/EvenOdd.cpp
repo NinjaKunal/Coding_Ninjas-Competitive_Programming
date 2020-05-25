@@ -35,6 +35,6 @@ int main()
         if(i%2!=0 && in%2!=0)
             so+=in;
     }
-    cout<<se<<" "<<so;
+    cout<< se<<" "<<so;
 	return 0;
 }
